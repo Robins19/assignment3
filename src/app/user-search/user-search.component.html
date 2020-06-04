@@ -1,0 +1,23 @@
+<app-common-header></app-common-header>
+<div class="search_maid mr-3" style=" margin-top: 70px;">
+    <form [formGroup]='searchForm'>
+        
+          
+            
+            <div class="form-group input-container " style="position: relative;">
+            
+                <div class="form-group has-search">
+                    <input type="text" class="form-control" placeholder="Search your User" formControlName="searchName">
+                  </div>
+                  <div  *ngIf="showEmailSearch" class="search-div">
+                    <ul class="list" style="list-style-type:none;height: 300px;overflow-y: auto;">
+                      <li class="list-item" (click)="selectUser(data)" *ngFor="let data of selectedData">
+                          <img
+                          [src]="data.avatar_url?data.avatar_url:'https://i.ya-webdesign.com/images/placeholder-image-png-1.png'"
+                          class=" border-0 rounded-circle mr-2"
+                          width="50" height="50">UserName {{data?.login}}</li>
+                    </ul>
+                  </div>
+              </div>
+      </form>
+</div>
